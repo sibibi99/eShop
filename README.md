@@ -6,5 +6,9 @@
     + Master: Production
     + Develop: Building
     + Featurure/Working
+## Istall Package
+- Tools
+- Design
+- SQL Server
 
 ## Design by Si.Ngsang 2021
