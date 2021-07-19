@@ -16,6 +16,8 @@ namespace eShop.Data.EF
         {
         }
 
+       
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Configuration using Fluent API
@@ -38,6 +40,9 @@ namespace eShop.Data.EF
             //Config AppUser & AppRole
             modelBuilder.ApplyConfiguration(new AppUserConfiguration());
             modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
+            //Khai bao bang Images mo tao them
+            modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
+
 
             modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
             modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId });
@@ -75,8 +80,7 @@ namespace eShop.Data.EF
 
 
         public DbSet<Transaction> Transactions { get; set; }
-
-
+        public DbSet<ProductImage> ProductImages { get; set; }
 
     }
 }

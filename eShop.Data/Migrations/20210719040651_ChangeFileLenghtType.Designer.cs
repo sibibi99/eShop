@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eShop.Data.EF;
 
 namespace eShop.Data.Migrations
 {
     [DbContext(typeof(EShopDbContext))]
-    partial class EShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210719040651_ChangeFileLenghtType")]
+    partial class ChangeFileLenghtType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,7 +182,7 @@ namespace eShop.Data.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "2f35ca90-f25e-4a2c-9a2e-276f263ff722",
+                            ConcurrencyStamp = "32f95d61-53e3-4ec7-875b-8389e43b4441",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -257,7 +259,7 @@ namespace eShop.Data.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d4068ecd-6190-4140-a1d2-c4e663206732",
+                            ConcurrencyStamp = "086d0849-153e-4970-ab5e-bd48c1442ff1",
                             Dob = new DateTime(2021, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "sibibi99@gmail.com",
                             EmailConfirmed = true,
@@ -266,7 +268,7 @@ namespace eShop.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "sibibi99@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHYkF4NHWWzgUtzv6Y/6e6lNeTthtANkDc6s5mW36fv1jYIbb5HvrTy5XJR9aXd+HA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPfNSz4DqUo/ig+IMdJk1uYSuErQR8QciPumv9yf4iiRAz++znKa5PGN/YKAo52b0Q==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -617,7 +619,7 @@ namespace eShop.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2021, 7, 19, 13, 7, 39, 118, DateTimeKind.Local).AddTicks(5510),
+                            DateCreated = new DateTime(2021, 7, 19, 11, 6, 50, 298, DateTimeKind.Local).AddTicks(3860),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
