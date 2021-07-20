@@ -26,4 +26,10 @@
     <PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\user-content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\user-content\" />
+  </ItemGroup>
 </Project>

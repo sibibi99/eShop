@@ -8,6 +8,7 @@ using eShop.Utilities.Constants;
 using Microsoft.EntityFrameworkCore;
 using eShop.Application.Catalog.Products;
 using Microsoft.OpenApi.Models;
+using eShop.Application.Common;
 
 namespace BackEndApi
 {
@@ -28,7 +29,11 @@ namespace BackEndApi
                 options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectionString)));
 
             //Declare DI: Khai bao du lieu cho API Product
+            services.AddTransient<IStorageService, FileStorageService>();
+
             services.AddTransient<IPublicProductService, PublicProductService>();
+            services.AddTransient<IManageProductService, ManageProductService>();
+
 
             services.AddControllersWithViews();
 
