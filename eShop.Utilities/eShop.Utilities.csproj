@@ -6,8 +6,10 @@
 
   <ItemGroup>
     <None Remove="Exceptions\" />
+    <None Remove="Constant\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exceptions\" />
+    <Folder Include="Constant\" />
   </ItemGroup>
 </Project>
