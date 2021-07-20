@@ -1,13 +1,15 @@
-﻿using System;
-using System.Threading.Tasks;
-using eShop.ViewModels.Catalog.Products.Manage;
+﻿using eShop.ViewModels.Catalog.Products;
 using eShop.ViewModels.Common;
+using eShopSolution.ViewModels.Catalog.Products;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace eShop.ViewModels.Catalog.Products
+namespace eShop.Application.Catalog.Products
 {
     public interface IPublicProductService
     {
-         Task<PagedResult<ProductViewModel>> GetAllByCategoryId(GetProductPagingRequest request);
+        Task<PagedResult<ProductViewModel>> GetAllByCategoryId(GetPublicProductPagingRequest request);
 
+        Task<List<ProductViewModel>> GetAll();
     }
 }

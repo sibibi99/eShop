@@ -1,14 +1,13 @@
-﻿using System;
+﻿using eShop.Data.EF;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using eShop.ViewModels.Catalog.Products.Dtos;
-using eShop.ViewModels.Catalog.Products.Dtos.Public;
-using eShop.ViewModels.Dtos;
-using eShop.Data.EF;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using eShop.ViewModels.Common;
+using eShop.ViewModels.Catalog.Products;
+using eShopSolution.ViewModels.Catalog.Products;
 
-namespace eShop.ViewModels.Catalog.Products
+namespace eShop.Application.Catalog.Products
 {
     public class PublicProductService : IPublicProductService
     {
@@ -46,7 +45,7 @@ namespace eShop.ViewModels.Catalog.Products
 
         }
 
-        public async Task<PagedResult<ProductViewModel>> GetAllByCategoryId(GetProductPagingRequest request)
+        public async Task<PagedResult<ProductViewModel>> GetAllByCategoryId(GetPublicProductPagingRequest request)
         {
             //1. Select join
             var query = from p in _context.Products
@@ -89,12 +88,5 @@ namespace eShop.ViewModels.Catalog.Products
             };
             return pagedResult;
         }
-
-       
-    }
-
-    public class GetPublicProductPagingRequest
-    {
-        public object CategoryId { get; internal set; }
     }
 }

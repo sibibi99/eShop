@@ -8,16 +8,12 @@
     <None Remove="Catalog\" />
     <None Remove="Catalog\Products\" />
     <None Remove="Common\" />
-    <None Remove="Catalog\Products\Manage\" />
-    <None Remove="Catalog\Products\Public\" />
     <None Remove="Microsoft.AspNetCore.Http.Features" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Catalog\" />
     <Folder Include="Catalog\Products\" />
     <Folder Include="Common\" />
-    <Folder Include="Catalog\Products\Manage\" />
-    <Folder Include="Catalog\Products\Public\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.8" />

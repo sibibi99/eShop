@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using eShop.ViewModels.Catalog.Products.Manage;
-using eShop.ViewModels.Common;
+﻿using eShop.Application.Common;
 using eShop.Data.EF;
 using eShop.Data.Entities;
 using eShop.Utilities.Exceptions;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
+using eShop.ViewModels.Catalog.Products;
+using eShop.ViewModels.Common;
+using eShopSolution.ViewModels.Catalog.Products;
 using Microsoft.AspNetCore.Http;
-using System.Net.Http.Headers;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using System.IO;
-using eShop.Application.Common;
+using System.Linq;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace eShop.ViewModels.Catalog.Products
+namespace eShop.Application.Catalog.Products
 {
     public class ManageProductService : IManageProductService
     {
@@ -96,9 +98,7 @@ namespace eShop.ViewModels.Catalog.Products
             return await _context.SaveChangesAsync();
         }
 
-
-
-        public async Task<PagedResult<ProductViewModel>> GetAllPaging(Manage.GetProductPagingRequest request)
+        public async Task<PagedResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request)
         {
             //1. Select join
             var query = from p in _context.Products
@@ -144,6 +144,8 @@ namespace eShop.ViewModels.Catalog.Products
             };
             return pagedResult;
         }
+
+    
 
         public Task<List<ProductImageViewModel>> GetListImage(int productId)
         {
@@ -196,6 +198,7 @@ namespace eShop.ViewModels.Catalog.Products
             if (product == null) throw new EShopException($"Cannot find a product with id: {productId}");
             product.Price = newPrice;
             return await _context.SaveChangesAsync() > 0;
+
         }
 
         public async Task<bool> UpdateStock(int productId, int addedQuantity)
@@ -206,7 +209,34 @@ namespace eShop.ViewModels.Catalog.Products
             return await _context.SaveChangesAsync() > 0;
         }
 
-        public Task<bool> UpdateStock(int productId, decimal addedQuantity)
+        Task<int> IManageProductService.AddImages(int productId, List<IFormFile> files)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task IManageProductService.AddViewcount(int productId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<int> IManageProductService.Create(ProductCreateRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<int> IManageProductService.Delete(int productId)
+        {
+            throw new NotImplementedException();
+        }
+
+     
+
+        Task<List<ProductImageViewModel>> IManageProductService.GetListImage(int productId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<int> IManageProductService.RemoveImages(int imageId)
         {
             throw new NotImplementedException();
         }
@@ -217,6 +247,26 @@ namespace eShop.ViewModels.Catalog.Products
             var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
             await _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
             return fileName;
+        }
+
+        Task<int> IManageProductService.Update(ProductUpdateRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<int> IManageProductService.UpdateImage(int imageId, string caption, bool isDefault)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<bool> IManageProductService.UpdatePrice(int productId, decimal newPrice)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<bool> IManageProductService.UpdateStock(int productId, int addedQuantity)
+        {
+            throw new NotImplementedException();
         }
     }
 }
