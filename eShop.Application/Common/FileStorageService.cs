@@ -39,8 +39,5 @@ namespace eShop.Application.Common
         }
     }
 
-    public interface IWebHostEnvironment
-    {
-        string WebRootPath { get; }
-    }
+   
 }
