@@ -2,6 +2,7 @@
 using eShop.Application.Catalog.Products;
 using eShop.ViewModels.Catalog.ProductImages;
 using eShop.ViewModels.Catalog.Products;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,6 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace BackEndApi.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
+    [Authorize]
     public class ProductsController : ControllerBase
     {
         private readonly IPublicProductService _publicProductService;
