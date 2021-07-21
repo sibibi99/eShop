@@ -64,9 +64,6 @@ namespace eShop.Application.Catalog.Products
             return pagedResult;
         }
 
-        public Task GetAllByCategoryId(GetPublicProductPagingRequest request)
-        {
-            throw new System.NotImplementedException();
-        }
+        
     }
     }

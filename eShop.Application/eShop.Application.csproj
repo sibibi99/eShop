@@ -11,12 +11,16 @@
     <None Remove="Common\" />
     <None Remove="Microsoft.Extensions.Hosting" />
     <None Remove="Microsoft.Extensions.Hosting.Abstractions" />
+    <None Remove="System\" />
+    <None Remove="System\Users\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Catalog\" />
     <Folder Include="Catalog\Products\" />
     <Folder Include="Catalog\Categories\" />
     <Folder Include="Common\" />
+    <Folder Include="System\" />
+    <Folder Include="System\Users\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eShop.Data\eShop.Data.csproj" />
