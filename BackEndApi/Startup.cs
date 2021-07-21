@@ -9,6 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using eShop.Application.Catalog.Products;
 using Microsoft.OpenApi.Models;
 using eShop.Application.Common;
+using Microsoft.AspNetCore.Identity;
+using eShop.Data.Entities;
+using eShop.Application.System.Users;
 
 namespace BackEndApi
 {
@@ -28,11 +31,25 @@ namespace BackEndApi
             services.AddDbContext<EShopDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectionString)));
 
+            //Dang ky nhung Store ben duoi
+            services.AddIdentity<AppUser, AppRole>()
+                .AddEntityFrameworkStores<EShopDbContext>()
+                .AddDefaultTokenProviders();
+
             //Declare DI: Khai bao du lieu cho API Product
             services.AddTransient<IStorageService, FileStorageService>();
 
             services.AddTransient<IPublicProductService, PublicProductService>();
             services.AddTransient<IManageProductService, ManageProductService>();
+
+            //JsonWeb Token
+            services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
+            services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
+            services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
+            // Dang ky Controler User
+            services.AddTransient<IUserService, UserService>();
+
+
 
 
             services.AddControllersWithViews();
