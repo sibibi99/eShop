@@ -15,6 +15,9 @@ using eShop.Application.System.Users;
 using System.Collections.Generic;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using eShop.ViewModels.System.Users;
 
 namespace BackEndApi
 {
@@ -49,11 +52,17 @@ namespace BackEndApi
             services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
+
             // Dang ky Controler User
             services.AddTransient<IUserService, UserService>();
 
+            // Dang ky Fluent Validation
+            //services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator>();
+            //services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>();
 
-            services.AddControllers();
+
+            // Đăng ký tất cả những thằng nào cùng DLL Assembly trong LoginrequestValidator
+            services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
 
             //Add SwaggerGen
             services.AddSwaggerGen(c =>
