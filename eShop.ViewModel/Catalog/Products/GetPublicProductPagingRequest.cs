@@ -11,3 +11,4 @@ namespace eShop.ViewModels.Catalog.Products
         //public string LanguageId { get; set; }
     }
 }
+

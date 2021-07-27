@@ -12,6 +12,7 @@
     <None Remove="Catalog\ProductImages\" />
     <None Remove="System\" />
     <None Remove="System\Users\" />
+    <None Remove="FluentValidation.AspNetCore" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Catalog\" />
@@ -23,5 +24,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.8" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.0" />
   </ItemGroup>
 </Project>
