@@ -17,9 +17,9 @@
     },
     "BackEndApi": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "Swagger",
-      "applicationUrl": "https://localhost:38396;http://localhost:4305",
+      "applicationUrl": "https://localhost:38396;",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

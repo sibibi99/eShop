@@ -20,7 +20,7 @@ namespace eShop.Application.Catalog.Products
     {
         private readonly EShopDbContext _context;
         private readonly IStorageService _storageService;
-        private object request;
+        //private object request;
 
         public ManageProductService(EShopDbContext context, IStorageService storageService)
         {
