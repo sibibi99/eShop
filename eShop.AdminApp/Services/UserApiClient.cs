@@ -54,7 +54,7 @@ namespace eShop.AdminApp.Services
 
             var json = JsonConvert.SerializeObject(registerRequest);
             var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
-
+            // Add API
             var response = await client.PostAsync($"/api/Users/register", httpContent);
             return response.IsSuccessStatusCode;
         }
