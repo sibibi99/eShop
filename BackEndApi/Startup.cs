@@ -45,8 +45,7 @@ namespace BackEndApi
             //Declare DI: Khai bao du lieu cho API Product
             services.AddTransient<IStorageService, FileStorageService>();
 
-            services.AddTransient<IPublicProductService, PublicProductService>();
-            services.AddTransient<IManageProductService, ManageProductService>();
+            services.AddTransient<IProductService, ProductService>();
 
             //JsonWeb Token
             services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();

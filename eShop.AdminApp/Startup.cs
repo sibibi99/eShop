@@ -34,11 +34,17 @@ namespace eShop.AdminApp
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                .AddCookie(options =>
                {
-                   options.LoginPath = "/User/Login/";
+                   options.LoginPath = "/Login/Index";
                    options.AccessDeniedPath = "/User/Forbidden/";
                });
 
             services.AddControllersWithViews().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>()) ;
+
+            // Add Session Timeout
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
             // Dang Ky IUser API Client
             services.AddTransient<IUserApiClient, UserApiClient>();
 
@@ -72,6 +78,9 @@ namespace eShop.AdminApp
             app.UseRouting();
             // #3
             app.UseAuthorization();
+            // Use Session
+            app.UseSession();
+
 
             app.UseEndpoints(endpoints =>
             {
