@@ -8,6 +8,7 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -45,6 +46,9 @@ namespace eShop.AdminApp
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
             });
+            // Cả ứng dụng chỉ sử dụng đúng 1 Instant để Inject vào bất cứ Service nào
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             // Dang Ky IUser API Client
             services.AddTransient<IUserApiClient, UserApiClient>();
 

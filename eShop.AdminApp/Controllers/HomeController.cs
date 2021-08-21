@@ -11,8 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace eShop.AdminApp.Controllers
 {
     // Xac minh Login
-    [Authorize]
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
 
