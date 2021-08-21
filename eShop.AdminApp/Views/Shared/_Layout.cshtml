@@ -91,7 +91,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-          
+
         </ul>
         <!-- End of Sidebar -->
         <!-- Content Wrapper -->
@@ -299,11 +299,11 @@
                                     User Index
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <form method="get" asp-controller="Login" asp-action="Index"> 
-                                <button class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </button>
+                                <form method="get" asp-controller="Login" asp-action="Index">
+                                    <button class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </button>
 
                                 </form>
                             </div>
@@ -314,7 +314,7 @@
                 </nav>
                 <!-- End of Topbar -->
                 <!-- Begin Page Content -->
-              @RenderBody()
+                @RenderBody()
                 <!-- /.container-fluid -->
 
             </div>
@@ -375,6 +375,7 @@
     <!-- Page level custom scripts -->
     <script src="~/js/demo/chart-area-demo.js"></script>
     <script src="~/js/demo/chart-pie-demo.js"></script>
+    @RenderSection("Scripts", required: false)
 
 </body>
 
