@@ -7,5 +7,6 @@ namespace eShop.ViewModels.Common
     {
         public List<T> Items { set; get; }
         public int TotalRecord { set; get; }
+        public object ResultObj { get; set; }
     }
 }
